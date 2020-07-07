@@ -208,6 +208,7 @@ def portfolio_mangement():
         plt.title('Covariance matrix ')
         ttl = ax.title
         ttl.set_position([.5, 1.1])
+        plt.legend()
         plt.savefig('static/portfolio_corr.png')
         
         
