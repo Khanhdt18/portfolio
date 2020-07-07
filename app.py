@@ -204,7 +204,7 @@ def portfolio_mangement():
         ax.set_yticks(ticks)
         ax.set_xticklabels(symbols)
         ax.set_yticklabels(symbols)
-        plt.title('Covariance matrix ')
+        plt.title('Correlation matrix ')
         plt.savefig('static/portfolio_corr.png', bbox_inches='tight')
         
         
