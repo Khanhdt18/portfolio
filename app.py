@@ -193,8 +193,7 @@ def portfolio_mangement():
         rets = np.log(data / data.shift(1))
         (data / data.iloc[0]*100).plot(figsize=(8, 5))
         plt.title('Normalized prices over time')
-        ttl = ax.title
-        ttl.set_position([.5, 1.1])
+        plt.legend()
         plt.savefig('static/portfolio.png')
         
         fig = plt.figure(figsize=(8, 5))
@@ -252,8 +251,7 @@ def portfolio_mangement():
         plt.ylabel('Expected return')
         plt.colorbar(label='Sharpe ratio')
         plt.title("Portfolio risk and return")
-        ttl = ax.title
-        ttl.set_position([.5, 1.1])
+        plt.legend()
         plt.savefig('static/portfolio_opt.png')
         
         # create asset allowcation files
