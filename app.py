@@ -194,7 +194,7 @@ def portfolio_mangement():
         (data / data.iloc[0]*100).plot(figsize=(8, 5))
         plt.title('Normalized prices over time')
         plt.legend()
-        plt.savefig('static/portfolio.png')
+        plt.savefig('static/portfolio.png', bbox_inches='tight')
         
         fig = plt.figure(figsize=(8, 5))
         ax = fig.add_subplot(111)
@@ -207,7 +207,7 @@ def portfolio_mangement():
         ax.set_yticklabels(symbols)
         plt.title('Covariance matrix ')
         plt.legend()
-        plt.savefig('static/portfolio_corr.png')
+        plt.savefig('static/portfolio_corr.png', bbox_inches='tight')
         
         
         weights = np.random.random(noa)
@@ -251,7 +251,7 @@ def portfolio_mangement():
         plt.colorbar(label='Sharpe ratio')
         plt.title("Portfolio risk and return")
         plt.legend()
-        plt.savefig('static/portfolio_opt.png')
+        plt.savefig('static/portfolio_opt.png', bbox_inches='tight')
         
         # create asset allowcation files
         min_var_df = pd.DataFrame(columns=symbols) 
