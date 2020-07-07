@@ -183,17 +183,21 @@ def portfolio_mangement():
             dfk.set_index("Date", inplace=True)
             data[sym] = dfk['Close']
         
-        data["REAL ESTATE"] = np.nan
+        data["R E"] = np.nan
         
         for i in range(len(data)):
             data.iloc[i,noa] = realestate_asset_value[i]
         noa = noa+1
-        symbols=np.append(symbols, "REAL ESTATE" )
+        symbols=np.append(symbols, "R E" )
         
         rets = np.log(data / data.shift(1))
         (data / data.iloc[0]*100).plot(figsize=(8, 5))
+        plt.title('Normalized prices over time')
+        ttl = ax.title
+        ttl.set_position([.5, 1.1])
         plt.savefig('static/portfolio.png')
-        fig = plt.figure()
+        
+        fig = plt.figure(figsize=(8, 5))
         ax = fig.add_subplot(111)
         cax = ax.matshow(rets.cov() * 12, vmin=0, vmax=0.4)
         fig.colorbar(cax)
@@ -202,6 +206,9 @@ def portfolio_mangement():
         ax.set_yticks(ticks)
         ax.set_xticklabels(symbols)
         ax.set_yticklabels(symbols)
+        plt.title('Covariance matrix ')
+        ttl = ax.title
+        ttl.set_position([.5, 1.1])
         plt.savefig('static/portfolio_corr.png')
         
         
@@ -241,9 +248,12 @@ def portfolio_mangement():
         plt.plot(statistics(optv['x'])[1], statistics(optv['x'])[0], 'y*', markersize=15.0)
         # minimum variance portfolio
         plt.grid(True)
-        plt.xlabel('expected volatility')
-        plt.ylabel('expected return')
+        plt.xlabel('Expected volatility')
+        plt.ylabel('Expected return')
         plt.colorbar(label='Sharpe ratio')
+        plt.title("Portfolio risk and return")
+        ttl = ax.title
+        ttl.set_position([.5, 1.1])
         plt.savefig('static/portfolio_opt.png')
         
         # create asset allowcation files
