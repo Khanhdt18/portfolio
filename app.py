@@ -193,7 +193,6 @@ def portfolio_mangement():
         rets = np.log(data / data.shift(1))
         (data / data.iloc[0]*100).plot(figsize=(8, 5))
         plt.title('Normalized prices over time')
-        plt.legend()
         plt.savefig('static/portfolio.png', bbox_inches='tight')
         
         fig = plt.figure(figsize=(8, 5))
@@ -214,7 +213,7 @@ def portfolio_mangement():
         prets = []
         pvols = []
         
-        for p in range (500):
+        for p in range (1000):
             weights = np.random.random(noa)
             weights /= np.sum(weights)
             prets.append(np.sum(rets.mean() * weights) * 12)
@@ -249,7 +248,6 @@ def portfolio_mangement():
         plt.ylabel('Expected return')
         plt.colorbar(label='Sharpe ratio')
         plt.title("Portfolio risk and return")
-        plt.legend()
         plt.savefig('static/portfolio_opt.png', bbox_inches='tight')
         
         # create asset allowcation files
