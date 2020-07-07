@@ -317,6 +317,11 @@ def send_assets():
     
     return send_file('static/asset_allocation.xlsx', attachment_filename="asset_allocation.xlsx", as_attachment=True ,cache_timeout=0)
 
+@app.route('/download6')
+
+def download_file_1():
+    
+    return send_file('static/portfolio_data.xlsx', attachment_filename="portfolio_data.xlsx", as_attachment=True ,cache_timeout=0)
 
 @app.route('/predict_api2',methods=['POST'])
 def predict_api2():
