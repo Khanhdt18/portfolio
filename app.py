@@ -197,7 +197,7 @@ def portfolio_mangement():
         
         fig = plt.figure(figsize=(8, 5))
         ax = fig.add_subplot(111)
-        cax = ax.matshow(rets.cov() * 12, vmin=-1, vmax=1)
+        cax = ax.matshow(rets.corr(), vmin=-1, vmax=1)
         fig.colorbar(cax)
         ticks = np.arange(0,len(symbols),1)
         ax.set_xticks(ticks)
